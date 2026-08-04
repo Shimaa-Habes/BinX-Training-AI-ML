@@ -55,7 +55,7 @@ simply predicting the average value.
 
 The feature with the strongest influence on the prediction was:
 
-- ❤️ Heart Disease
+- 🫀 Heart Disease
 
 ## 🩺 Dataset
 
