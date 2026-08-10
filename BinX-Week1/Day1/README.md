@@ -38,7 +38,7 @@ pip freeze > requirements.txt
 
 ## 📓 Notebook Summary
 
-The `day1.ipynb` notebook contains:
+The `environment_setup.ipynb` notebook contains:
 
 - **2 Markdown cell** — introducing the notebook with a title and short description using headings, bold text, and formatted notes.
 - **1 Code cell** — a basic Python snippet verifying that the core libraries (`numpy`, `pandas`, `matplotlib`) were installed correctly and ready to use.
@@ -55,6 +55,3 @@ This simple structure establishes the foundation for combining documentation and
 - Jupyter Notebook
 - VS Code
 - Git & GitHub
-
-
-
