@@ -1,0 +1,2 @@
+BinX-Week5/Day3/fashion-mnist_train.csv filter=lfs diff=lfs merge=lfs -text
+BinX-Week5/Day3/fashion-mnist_test.csv filter=lfs diff=lfs merge=lfs -text
