@@ -6,7 +6,7 @@
 
 ## 🎯 Project Overview
 
-The **Cardiac Patient Monitoring System** is a machine learning project focused on analyzing cardiac patient data and classifying patients according to different heart disease severity levels.
+The **Cardiac Patient Monitoring System** is a machine learning project focused on analyzing cardiovascular patient data and classifying patients according to the presence or absence of cardiovascular disease.
 
 The project follows an end-to-end supervised machine learning workflow, including data preparation, exploratory data analysis, model training, evaluation, feature engineering, and pipeline development.
 
@@ -16,28 +16,26 @@ The project follows an end-to-end supervised machine learning workflow, includin
 
 ## 📊 Dataset
 
-The project uses the **Heart Disease UCI Dataset**, containing **920 patient records** collected from four clinical sources:
-
-- 🏥 Cleveland
-- 🏥 Hungary
-- 🏥 Switzerland
-- 🏥 VA Long Beach
+The project uses the **Cardiovascular Disease Dataset**, containing **70,000 patient records** across **13 columns** (12 input features + 1 binary target).
 
 ### 🎯 Target
 
 The target variable is:
 
 ```text
-num
+cardio
 ```
 
-It contains five classification classes:
+It contains two classification classes (binary classification):
 
 ```text
-0, 1, 2, 3, 4
+0, 1
 ```
 
-The dataset includes demographic, clinical, and examination-related features such as age, sex, chest pain type, resting blood pressure, cholesterol, maximum heart rate, exercise-induced angina, and other cardiac measurements.
+- `0` = No cardiovascular disease
+- `1` = Cardiovascular disease
+
+The dataset includes demographic and clinical features such as age, gender, height, weight, systolic and diastolic blood pressure, cholesterol level, glucose level, smoking status, alcohol consumption, and physical activity.
 
 ---
 
@@ -83,16 +81,16 @@ The dataset includes demographic, clinical, and examination-related features suc
 
 Two supervised classification models were used:
 
-| Model | Role |
-|---|---|
-| **Logistic Regression** | Baseline classifier |
-| **Random Forest** | Comparison classifier |
+| Model                   | Role                  |
+| ----------------------- | --------------------- |
+| **Logistic Regression** | Baseline classifier   |
+| **Random Forest**       | Comparison classifier |
 
 ### 🏆 Baseline Result
 
 The Logistic Regression baseline achieved:
 
-> **Test Accuracy: 59.78%**
+> **Test Accuracy: 70.73%**
 
 Random Forest was then evaluated against the baseline using the same train/test split and multiple evaluation metrics.
 
@@ -107,7 +105,7 @@ The models were evaluated using:
 - 🎯 Precision
 - 🔍 Recall
 - ⚖️ F1-Score
-- 📈 ROC-AUC
+- 📈 ROC-AUC (binary, based on the predicted probability of `cardio = 1`)
 - 🧩 Confusion Matrix
 
 The detailed model comparison and analysis are available in the project notebook.
@@ -120,7 +118,7 @@ The detailed model comparison and analysis are available in the project notebook
 CardiacML-Project/
 │
 ├── input/
-│   └── heart.csv
+│   └── heart_disease_uci.csv
 │
 ├── analysis/
 │   └── heart_analysis.ipynb
@@ -198,9 +196,9 @@ For the detailed technical analysis, data preparation steps, EDA findings, model
 
 ## ⚠️ Limitations
 
-- The dataset contains 920 records and may not represent all real-world cardiac populations.
-- Some features contain missing values that required imputation.
-- Target classes are not perfectly balanced.
+- The dataset contains 70,000 records and may not represent all real-world cardiovascular populations.
+- The dataset contains no missing values, so no imputation was required.
+- Target classes are highly balanced.
 - Only a limited number of classification models were evaluated.
 - Model performance may not generalize to different patient populations.
 - The results should not be interpreted as medical diagnoses.

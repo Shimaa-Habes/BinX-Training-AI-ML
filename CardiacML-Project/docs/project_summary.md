@@ -6,7 +6,7 @@
 
 ## 1. 🎯 Project Objective
 
-The goal of this project is to analyze cardiac patient data and develop supervised machine learning models capable of classifying patients according to different heart disease severity levels.
+The goal of this project is to analyze cardiovascular patient data and develop supervised machine learning models capable of classifying patients according to the presence or absence of cardiovascular disease.
 
 The project demonstrates a complete machine learning workflow, including:
 
@@ -31,24 +31,15 @@ The project demonstrates a complete machine learning workflow, including:
 
 ### Dataset Name
 
-**Heart Disease UCI Dataset**
+**Cardiovascular Disease Dataset**
 
 ### Dataset Size
 
 The dataset contains:
 
-- **920 records**
-- Multiple demographic and clinical features
-- One target variable: `num`
-
-### Data Sources
-
-The records originate from:
-
-- Cleveland
-- Hungary
-- Switzerland
-- VA Long Beach
+- **70,000 records**
+- **13 columns** (12 input features + 1 target)
+- One target variable: `cardio`
 
 ---
 
@@ -57,21 +48,18 @@ The records originate from:
 | Feature | Description | Type |
 |---|---|---|
 | `id` | Patient record identifier | Numerical |
-| `age` | Patient age | Numerical |
-| `sex` | Patient sex | Categorical |
-| `dataset` | Source dataset | Categorical |
-| `cp` | Chest pain type | Categorical |
-| `trestbps` | Resting blood pressure | Numerical |
-| `chol` | Serum cholesterol | Numerical |
-| `fbs` | Fasting blood sugar indicator | Boolean |
-| `restecg` | Resting ECG result | Categorical |
-| `thalch` | Maximum achieved heart rate | Numerical |
-| `exang` | Exercise-induced angina | Boolean |
-| `oldpeak` | ST depression induced by exercise | Numerical |
-| `slope` | Slope of peak exercise ST segment | Categorical |
-| `ca` | Number of major vessels | Numerical |
-| `thal` | Thalassemia result | Categorical |
-| `num` | Heart disease severity class | Target |
+| `age` | Patient age in days | Numerical |
+| `gender` | Patient gender | Categorical |
+| `height` | Patient height in centimeters | Numerical |
+| `weight` | Patient weight in kilograms | Numerical |
+| `ap_hi` | Systolic blood pressure | Numerical |
+| `ap_lo` | Diastolic blood pressure | Numerical |
+| `cholesterol` | Cholesterol level category | Categorical |
+| `gluc` | Glucose level category | Categorical |
+| `smoke` | Smoking status | Boolean |
+| `alco` | Alcohol consumption status | Boolean |
+| `active` | Physical activity status | Boolean |
+| `cardio` | Presence of cardiovascular disease | Target |
 
 ---
 
@@ -80,26 +68,23 @@ The records originate from:
 The target variable is:
 
 ```text
-num
+cardio
 ```
 
-The dataset contains five target classes:
+The dataset contains two target classes (binary classification):
 
 ```text
-0, 1, 2, 3, 4
+0, 1
 ```
 
 The observed target distribution was:
 
-| Class | Count |
-|---:|---:|
-| 0 | 411 |
-| 1 | 265 |
-| 2 | 109 |
-| 3 | 107 |
-| 4 | 28 |
+| Class | Count | Percentage |
+|---:|---:|---:|
+| 0 (No cardiovascular disease) | 35,021 | 50.03% |
+| 1 (Cardiovascular disease) | 34,979 | 49.97% |
 
-The distribution shows that the classes are not perfectly balanced, with class `4` having considerably fewer observations than class `0`.
+The distribution shows that the target classes are highly balanced, with an almost equal number of observations in each class.
 
 ---
 
@@ -109,26 +94,13 @@ A working copy of the original dataset was created before applying data preparat
 
 ### Missing Values
 
-The original dataset contained missing values in several features, including:
-
-- `trestbps`
-- `chol`
-- `fbs`
-- `restecg`
-- `thalch`
-- `exang`
-- `oldpeak`
-- `slope`
-- `ca`
-- `thal`
+The dataset contains no missing values, so no imputation was required for any feature.
 
 ### Missing-Value Strategy
 
-Numerical features were imputed using the **median**.
+Not applicable — since the dataset has no missing values, no median or mode imputation was needed.
 
-Categorical and boolean features were imputed using the **most frequent value (mode)**.
-
-After imputation:
+After the missing-value check:
 
 ```text
 Remaining missing values: 0
@@ -138,16 +110,7 @@ Remaining missing values: 0
 
 ## 6. 🔍 Duplicate Check
 
-Duplicate rows were checked before modeling.
-
-Result:
-
-```text
-Number of duplicate rows: 0
-Remaining duplicate rows: 0
-```
-
-No duplicate records were found.
+Duplicate rows were checked before modeling to ensure data quality.
 
 ---
 
@@ -157,14 +120,13 @@ Several validation checks were performed to identify potentially invalid or unus
 
 The validation included:
 
-- `age <= 0`
-- `trestbps <= 0`
-- `chol <= 0`
-- `thalch <= 0`
-- `oldpeak < 0`
-- `ca` outside `0–3`
-- `num` outside `0–4`
-- Unexpected values in categorical features
+- `age` range checks
+- `height` range checks
+- `weight` range checks
+- `ap_hi` and `ap_lo` (blood pressure) range and consistency checks
+- Unexpected values in categorical features (`gender`, `cholesterol`, `gluc`)
+- Unexpected values in binary features (`smoke`, `alco`, `active`)
+- `cardio` restricted to valid target values (`0` or `1`)
 
 The validation step helped identify values that required review before modeling.
 
@@ -172,43 +134,51 @@ The validation step helped identify values that required review before modeling.
 
 ## 8. 🔢 Feature Encoding
 
-Boolean features:
+Binary features:
 
 ```text
-fbs
-exang
+smoke
+alco
+active
 ```
 
-were converted to numerical values.
+were already represented as binary values and required no additional transformation.
 
-Categorical features were transformed using **one-hot encoding**:
+Categorical features were transformed using **OneHotEncoder(handle_unknown="ignore")**:
 
 ```text
-sex
-dataset
-cp
-restecg
-slope
-thal
+gender
+cholesterol
+gluc
 ```
 
-`drop_first=True` was used to avoid unnecessary redundant dummy variables.
+Numerical features were scaled using **StandardScaler**:
+
+```text
+age
+height
+weight
+ap_hi
+ap_lo
+```
+
+Categorical and numerical preprocessing steps were combined using a **ColumnTransformer**.
 
 ---
 
 ## 9. 📈 Descriptive Statistics
 
-Descriptive statistics were calculated for the numerical features.
+Descriptive statistics were calculated for the numerical features:
 
-Important observations included:
+```text
+age
+height
+weight
+ap_hi
+ap_lo
+```
 
-- Mean age: approximately **53.51 years**
-- Mean resting blood pressure: approximately **132.14**
-- Mean cholesterol: approximately **244.03**
-- Mean maximum heart rate: approximately **137.69**
-- Mean oldpeak: approximately **0.87**
-
-These statistics were used to understand the scale and distribution of the numerical features before modeling.
+These statistics were used to understand the scale and distribution of the numerical features before modeling. Detailed values are available directly in the analysis notebook.
 
 ---
 
@@ -220,7 +190,15 @@ The analysis included:
 
 ### 🎯 Target Distribution
 
-The distribution of the five target classes was examined to identify class imbalance.
+The distribution of the two target classes (`cardio`) was examined to confirm class balance.
+
+### 📊 Numerical Feature Distributions
+
+The distributions of `age`, `height`, `weight`, `ap_hi`, and `ap_lo` were examined.
+
+### 🚨 Outlier Analysis
+
+Numerical features were reviewed for outliers, particularly in blood pressure, height, and weight.
 
 ### 🔗 Correlation Matrix
 
@@ -228,9 +206,9 @@ A correlation matrix was used to explore linear relationships between numerical 
 
 ### 📊 Feature vs Target Relationships
 
-Selected numerical features were compared across the target classes using visualizations such as boxplots.
+Numerical features (`age`, `height`, `weight`, `ap_hi`, `ap_lo`) were compared across the `cardio` classes using visualizations such as boxplots.
 
-These visualizations helped identify features that showed noticeable differences between heart disease severity classes.
+These visualizations helped identify features that showed noticeable differences between patients with and without cardiovascular disease.
 
 EDA findings were treated as exploratory observations and not as evidence of clinical causation.
 
@@ -238,7 +216,7 @@ EDA findings were treated as exploratory observations and not as evidence of cli
 
 ## 11. 🤖 Supervised Baseline
 
-The classification problem was defined as a **multi-class classification task**.
+The classification problem was defined as a **binary classification task**.
 
 ### Features
 
@@ -246,7 +224,7 @@ The encoded dataset was separated into:
 
 ```text
 X → Input features
-y → Target variable (num)
+y → Target variable (cardio)
 ```
 
 ### Train/Test Split
@@ -261,8 +239,8 @@ The dataset was divided using:
 With:
 
 ```text
-Training samples: 736
-Testing samples: 184
+Training samples: 56,000
+Testing samples: 14,000
 Random state: 42
 Stratified: Yes
 ```
@@ -284,7 +262,7 @@ It allows us to establish an initial performance reference before testing a more
 The Logistic Regression model achieved:
 
 ```text
-Test Accuracy: 59.78%
+Test Accuracy: 70.73%
 ```
 
 This result was used as the baseline for comparison with the second classifier.
@@ -323,23 +301,15 @@ A confusion matrix shows:
 
 - Correct predictions for each class
 - Incorrect predictions between classes
-- Which target classes are easier or harder for the model to distinguish
+- Which target class is easier or harder for the model to identify
 
 ### False Positive
 
-A **false positive** occurs when the model predicts a class incorrectly when the actual class is different.
-
-In simple terms:
-
-> The model says a patient belongs to a particular class, but the actual class is different.
+A **false positive** occurs when the model predicts `cardio = 1` but the patient does not actually have cardiovascular disease.
 
 ### False Negative
 
-A **false negative** occurs when the model fails to correctly identify a class that is actually present.
-
-In simple terms:
-
-> The model predicts another class even though the patient actually belongs to the target class being considered.
+A **false negative** occurs when the model predicts `cardio = 0` but the patient actually has cardiovascular disease.
 
 ---
 
@@ -365,11 +335,11 @@ Combines precision and recall into a single metric.
 
 ### 📈 ROC-AUC
 
-ROC-AUC measures the model's ability to distinguish between classes when applicable.
+ROC-AUC is calculated using the predicted probability of the positive class (`cardio = 1`), reflecting the binary nature of the classification task.
 
 ### 🧩 Confusion Matrix
 
-Provides a detailed view of correct and incorrect predictions across all target classes.
+Provides a detailed view of correct and incorrect predictions across both target classes.
 
 ---
 
@@ -379,7 +349,7 @@ The models were compared using:
 
 | Metric | Logistic Regression | Random Forest |
 |---|---:|---:|
-| Test Accuracy | 59.78% | Evaluated in notebook |
+| Test Accuracy | 70.73% | Evaluated in notebook |
 | Cross-Validation | Evaluated in notebook | Evaluated in notebook |
 | Weighted Precision | Evaluated in notebook | Evaluated in notebook |
 | Weighted Recall | Evaluated in notebook | Evaluated in notebook |
@@ -394,7 +364,7 @@ The model selection should consider multiple metrics rather than accuracy alone.
 
 ## 18. 🔧 Feature Engineering
 
-Additional feature engineering was performed to create useful representations of the existing patient information.
+Additional feature engineering was performed to create useful representations of the existing patient information, using only the features available in the current dataset (e.g., `age`, `height`, `weight`, `ap_hi`, `ap_lo`, `gender`, `cholesterol`, `gluc`, `smoke`, `alco`, `active`).
 
 The engineered features were incorporated into the modeling workflow to determine whether additional transformations could improve model performance.
 
@@ -402,14 +372,14 @@ The engineered features were incorporated into the modeling workflow to determin
 
 ## 19. 🔗 Machine Learning Pipeline
 
-A Scikit-learn Pipeline was developed to combine the required preprocessing and modeling steps into a single workflow.
+A Scikit-learn Pipeline was developed to combine the required preprocessing (including the `ColumnTransformer` for categorical and numerical features) and modeling steps into a single workflow.
 
 The pipeline allows the model to:
 
 ```text
 Raw Features
      ↓
-Preprocessing
+Preprocessing (ColumnTransformer)
      ↓
 Feature Engineering
      ↓
@@ -452,7 +422,7 @@ The saved model can later be loaded and reused for predictions without retrainin
 CardiacML-Project/
 │
 ├── input/
-│   └── heart.csv
+│   └── heart_disease_uci.csv
 │
 ├── analysis/
 │   └── heart_analysis.ipynb
@@ -476,10 +446,10 @@ CardiacML-Project/
 
 The exploratory and modeling stages provided several observations:
 
-- The dataset contains five target classes with noticeable class imbalance.
-- Several features contained missing values and required preprocessing.
-- Categorical and boolean features required transformation before modeling.
-- Logistic Regression provided a baseline accuracy of **59.78%**.
+- The dataset contains two target classes with a highly balanced distribution.
+- The dataset contains no missing values, simplifying the preprocessing workflow.
+- Categorical features required OneHotEncoder transformation, and numerical features required StandardScaler transformation before modeling.
+- Logistic Regression provided a baseline accuracy of **70.73%**.
 - Random Forest was used as a more flexible comparison model.
 - Multiple evaluation metrics were considered to avoid relying on accuracy alone.
 - The final pipeline provides a reproducible end-to-end modeling workflow.
@@ -490,15 +460,11 @@ The exploratory and modeling stages provided several observations:
 
 ### 📊 Dataset
 
-The dataset contains 920 records and may not represent all real-world cardiac populations.
+The dataset contains 70,000 records representing a specific population and may not generalize to all cardiovascular populations or clinical environments.
 
-### 🧹 Missing Data
+### ⚖️ Class Balance
 
-Imputation was required for several features. The chosen imputation strategies may not perfectly represent the original missing values.
-
-### ⚖️ Class Imbalance
-
-The target classes are not evenly distributed, particularly class `4`, which contains substantially fewer samples.
+The target classes are highly balanced, with an almost equal number of patients in each class.
 
 ### 🤖 Model Selection
 
@@ -516,11 +482,11 @@ The models are educational machine learning models and have not undergone clinic
 
 ## 25. 🏁 Final Conclusion
 
-This project demonstrates an end-to-end supervised machine learning workflow for cardiac patient data.
+This project demonstrates an end-to-end supervised machine learning workflow for cardiovascular patient data.
 
 Starting from raw patient records, the project performs data cleaning, validation, exploratory analysis, feature encoding, classification, model evaluation, feature engineering, and pipeline development.
 
-Logistic Regression established a baseline performance of **59.78% test accuracy**, while Random Forest provided a second model for comparison.
+Logistic Regression established a baseline performance of **70.73% test accuracy** on the binary `cardio` classification task, while Random Forest provided a second model for comparison.
 
 Overall, the project demonstrates how machine learning techniques can be combined with structured data analysis to explore classification problems in healthcare-related datasets.
 
