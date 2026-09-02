@@ -14,6 +14,8 @@ The day also included a practical introduction to **pre-trained Transformer mode
 
 ---
 
+## ![alt text](<Attention & Transformers in Deep Learning.jpg>)
+
 ## 🎯 Learning Objectives
 
 By the end of this day, I learned how to:
@@ -112,11 +114,11 @@ Instead of training a model completely from scratch, a pre-trained model can be 
 
 ### ⭐ Popular Transformer Models
 
-| Model | Description |
-|---|---|
-| 🧠 **BERT** | Bidirectional language understanding |
-| ⚡ **DistilBERT** | Smaller and faster version of BERT |
-| ✍️ **GPT-2** | Generative language model |
+| Model             | Description                          |
+| ----------------- | ------------------------------------ |
+| 🧠 **BERT**       | Bidirectional language understanding |
+| ⚡ **DistilBERT** | Smaller and faster version of BERT   |
+| ✍️ **GPT-2**      | Generative language model            |
 
 ### 🧪 Practical Experiment
 
@@ -167,13 +169,13 @@ The **LSTM remains the valid model** for the current ECG classification task.
 
 ## 🧠 Step 3 · Attention vs RNN Memory
 
-| RNN 🌀 | Attention 👀 |
-|---|---|
-| Processes the sequence step by step | Can consider multiple positions directly |
-| Carries information through a hidden state | Connects relevant positions directly |
-| Relies on sequential memory | Assigns different importance to elements |
-| Can struggle with long-range dependencies | Better captures relationships between distant elements |
-| Sequential processing | Supports parallel processing |
+| RNN 🌀                                     | Attention 👀                                           |
+| ------------------------------------------ | ------------------------------------------------------ |
+| Processes the sequence step by step        | Can consider multiple positions directly               |
+| Carries information through a hidden state | Connects relevant positions directly                   |
+| Relies on sequential memory                | Assigns different importance to elements               |
+| Can struggle with long-range dependencies  | Better captures relationships between distant elements |
+| Sequential processing                      | Supports parallel processing                           |
 
 Therefore, RNNs rely on **sequential memory** to carry context forward, while Attention can directly connect relevant positions and process sequence positions in parallel.
 
@@ -208,11 +210,11 @@ The Transformer concepts learned during Day 4 provide an alternative architectur
 
 # 📁 Files
 
-| File | Description |
-|---|---|
+| File                    | Description                                                    |
+| ----------------------- | -------------------------------------------------------------- |
 | 📓 `transformers.ipynb` | Attention, Transformer architecture, and Hugging Face concepts |
-| 🧪 `hands_on_lab.ipynb` | Practical use of a pre-trained Transformer |
-| 📄 `README.md` | Day 4 documentation |
+| 🧪 `hands_on_lab.ipynb` | Practical use of a pre-trained Transformer                     |
+| 📄 `README.md`          | Day 4 documentation                                            |
 
 ---
 
