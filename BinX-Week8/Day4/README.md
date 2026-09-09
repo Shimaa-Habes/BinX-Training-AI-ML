@@ -188,7 +188,7 @@ The model therefore made **2 errors out of 114 test samples**.
 The resulting accuracy was approximately:
 
 ```text
-98.25%
+"98.25%"
 ```
 
 ---
