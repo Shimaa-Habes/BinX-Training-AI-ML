@@ -1,6 +1,6 @@
  <div align="center">
 
-<img src="![alt text](image.png)" width="100%" alt="AI and Machine Learning Banner" />
+<img src="Media/AI-ML.png" width="100%" alt="AI and Machine Learning Banner" />
 
 # AI & Machine Learning Portfolio
 
