@@ -14,7 +14,7 @@
 
 **A practical learning journey in Artificial Intelligence, Machine Learning, and data-driven development.**
 
-[Explore the Repository](https://github.com/Shimaa-Habes/BinX-Training-AI-ML) · [Connect on LinkedIn](www.linkedin.com/in/shimaa-habes)
+[<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="16" height="16" alt="GitHub" /> BinX-Training-AI-ML](https://github.com/Shimaa-Habes/BinX-Training-AI-ML) · [<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" width="16" height="16" alt="LinkedIn" /> LinkedIn Profile](https://www.linkedin.com/in/shimaa-habes/)
 
 </div>
 
