@@ -14,7 +14,7 @@
 
 **A practical learning journey in Artificial Intelligence, Machine Learning, and data-driven development.**
 
-[Explore the Repository](https://github.com/Shimaa-Habes/BinX-Training-AI-ML) · [Connect on LinkedIn](https://www.linkedin.com/)
+[Explore the Repository](https://github.com/Shimaa-Habes/BinX-Training-AI-ML) · [Connect on LinkedIn](www.linkedin.com/in/shimaa-habes)
 
 </div>
 
