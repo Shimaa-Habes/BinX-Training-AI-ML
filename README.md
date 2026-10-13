@@ -1,6 +1,6 @@
  <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:191970,50:483D8B,100:008B8B&height=200&section=header&text=AI%20%26%20Machine%20Learning&fontSize=36&fontColor=ffffff&animation=fadeIn&fontAlignY=42&desc=Learning%20%7C%20Building%20%7C%20Growing&descAlignY=65&descSize=16" width="100%" alt="AI and Machine Learning Banner" />
+<img src="![alt text](image.png)" width="100%" alt="AI and Machine Learning Banner" />
 
 # AI & Machine Learning Portfolio
 
