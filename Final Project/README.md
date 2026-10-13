@@ -1,28 +1,24 @@
-::: {align="center"}
-`<img src="https://capsule-render.vercel.app/api?type=rect&color=0:202044,50:5146A5,100:278A8A&height=210&section=header&text=ScaleFlow&fontSize=48&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Enterprise%20Project%20Intelligence%20Platform&descAlignY=64&descSize=17" width="100%" alt="ScaleFlow banner" />`{=html}
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:202044,50:5146A5,100:278A8A&height=210&section=header&text=ScaleFlow&fontSize=48&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Enterprise%20Project%20Intelligence%20Platform&descAlignY=64&descSize=17" width="100%" alt="ScaleFlow banner" />
 
-### Plan Smarter. Detect Risks Earlier. Deliver Better.
+  <h2>Plan Smarter. Detect Risks Earlier. Deliver Better.</h2>
 
-```{=html}
-<p>
-```
+  <p>
+    <img src="https://img.shields.io/badge/Project-BinX%20Tech%202026-5146A5?style=for-the-badge" alt="BinX Tech 2026" />
+    <img src="https://img.shields.io/badge/Focus-Project%20Intelligence-278A8A?style=for-the-badge" alt="Project Intelligence" />
+    <img src="https://img.shields.io/badge/AI%2FML-Powered-6C5CE7?style=for-the-badge" alt="AI ML Powered" />
+  </p>
 
-`<img src="https://img.shields.io/badge/Project-BinX%20Tech%202026-5146A5?style=for-the-badge" alt="BinX Tech 2026" />`{=html}
-`<img src="https://img.shields.io/badge/Focus-Project%20Intelligence-278A8A?style=for-the-badge" alt="Project Intelligence" />`{=html}
-`<img src="https://img.shields.io/badge/AI%2FML-Powered-6C5CE7?style=for-the-badge" alt="AI ML Powered" />`{=html}
+  <p><strong>Bringing project management, risk analysis, and AI-driven insights together in one platform.</strong></p>
 
-```{=html}
-</p>
-```
-
-**Bringing project management, risk analysis, and AI-driven insights
-together in one platform.**
-
-[Project Presentation](./ScaleFlow-Presentation.pptx) · [ClickUp
-Workspace](https://app.clickup.com/1100310000008929/v/s/1100310000044330)
-· [Figma
-Design](https://www.figma.com/design/pcCmYKGnV84HLSMj8zZB3S/ScaleFlow?node-id=0-1&t=eGBbgBIBEy7iFyKo-1)
-:::
+  <p>
+    <a href="./ScaleFlow-Presentation.pptx">Project Presentation</a>
+    ·
+    <a href="https://app.clickup.com/1100310000008929/v/s/1100310000044330">ClickUp Workspace</a>
+    ·
+    <a href="https://www.figma.com/design/pcCmYKGnV84HLSMj8zZB3S/ScaleFlow?node-id=0-1&t=eGBbgBIBEy7iFyKo-1">Figma Design</a>
+  </p>
+</div>
 
 ---
 
@@ -292,9 +288,10 @@ Potential future enhancements include:
 
 ---
 
-::: {align="center"}
+ <div align="center">
 
-### Build with purpose. Manage with insight. Scale with confidence.
+  <h3>Build with purpose. Manage with insight. Scale with confidence.</h3>
 
-_ScaleFlow --- turning project data into clearer decisions._
-:::
+  <p><em>ScaleFlow — turning project data into clearer decisions.</em></p>
+
+</div>
