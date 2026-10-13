@@ -257,7 +257,9 @@ Good documentation makes machine learning projects easier to understand and impr
 ```
 Day5/
 │
-├── day5.ipynb
+├── supervised_learning.ipynb
+│
+├── hands_on_lab.ipynb
 │
 └── README.md
 ```
@@ -277,7 +279,7 @@ Covered topics:
 ✅ Model training  
 ✅ Evaluation  
 ✅ Model comparison  
-✅ Final model selection  
+✅ Final model selection
 
 ---
 

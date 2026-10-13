@@ -227,7 +227,8 @@ The neural network is considered an improvement only if its final test performan
 Day4/
 ├── README.md
 ├── keras_training.ipynb
-└── hands_on_lab.ipynb
+├── hands_on_lab.ipynb
+└── test.ipynb
 ```
 
 ---

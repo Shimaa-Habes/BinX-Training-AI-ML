@@ -10,13 +10,13 @@ The goal is to reduce the number of features while preserving as much informatio
 
 ## 🎯 Objectives
 
-* Understand the **curse of dimensionality**.
-* Apply feature scaling using `StandardScaler`.
-* Apply **PCA** to a high-dimensional dataset.
-* Analyze the **explained variance ratio**.
-* Determine how many components are needed to retain approximately **95% variance**.
-* Reduce the dataset to **2 components** for visualization.
-* Understand the trade-off between dimensionality reduction and information loss.
+- Understand the **curse of dimensionality**.
+- Apply feature scaling using `StandardScaler`.
+- Apply **PCA** to a high-dimensional dataset.
+- Analyze the **explained variance ratio**.
+- Determine how many components are needed to retain approximately **95% variance**.
+- Reduce the dataset to **2 components** for visualization.
+- Understand the trade-off between dimensionality reduction and information loss.
 
 ---
 
@@ -108,15 +108,15 @@ Reducing the data to only 2 components also causes a larger loss of information,
 
 ## 🛠️ Tools Used
 
-* Python
-* Jupyter Notebook
-* Pandas
-* NumPy
-* Scikit-learn
+- Python
+- Jupyter Notebook
+- Pandas
+- NumPy
+- Scikit-learn
+  - `StandardScaler`
+  - `PCA`
 
-  * `StandardScaler`
-  * `PCA`
-* Matplotlib
+- Matplotlib
 
 ---
 
@@ -125,7 +125,9 @@ Reducing the data to only 2 components also causes a larger loss of information,
 ```text
 Day3/
 │
+├── pca_dimensionality_reduction.ipynb
 ├── pca_fashion_mnist.ipynb
+├── pca_disease.ipynb
 └── README.md
 ```
 

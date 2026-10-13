@@ -171,7 +171,7 @@ The final work was prepared for Mentor Review through GitHub.
 * `rnn_lstm.ipynb` → RNN and LSTM experiments
 * `hands_on_lab.ipynb` → Hands-On Lab and model comparison
 * `README.md` → Day 3 documentation
-* ECG dataset files → MIT-BIH / PTBDB data used for the experiments
+
 
 ---
 

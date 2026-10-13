@@ -174,9 +174,9 @@ Inspected two flagged observations and analyzed why their feature patterns may h
 ## 📁 Project Structure
 
 ```text
-Week4/
-└── Day4/
+Day4/
     ├── tsne_anomaly_detection.ipynb
+    ├── tsne_anomaly_detection_disease.ipynb
     ├── hands_on_lab.ipynb
     └── README.md
 

@@ -1,6 +1,7 @@
 # 🤖 AI & ML Course with BinX
 
 # 📘 Week 3 — Day 4
+
 ## 🌳 Trees, Forests, SVMs & k-NN
 
 ---
@@ -51,7 +52,7 @@ Decision Tree is a rule-based classification algorithm that makes decisions by s
 
 ✅ Easy to interpret  
 ✅ Human-readable rules  
-✅ Handles nonlinear relationships  
+✅ Handles nonlinear relationships
 
 ## Disadvantages
 
@@ -71,7 +72,7 @@ Each tree learns from random samples of the data, and the final prediction is ba
 
 ✅ Reduces overfitting  
 ✅ Strong performance  
-✅ Provides feature importance analysis  
+✅ Provides feature importance analysis
 
 ## Feature Importance
 
@@ -90,12 +91,12 @@ The RBF kernel was used to handle nonlinear relationships.
 ## Advantages
 
 ✅ Powerful classifier  
-✅ Works well with high-dimensional data  
+✅ Works well with high-dimensional data
 
 ## Disadvantages
 
 ⚠️ Requires feature scaling  
-⚠️ Slower with large datasets  
+⚠️ Slower with large datasets
 
 ---
 
@@ -108,12 +109,12 @@ k-NN predicts new samples by looking at the closest training examples and assign
 ## Advantages
 
 ✅ Simple and intuitive  
-✅ No complex training process  
+✅ No complex training process
 
 ## Disadvantages
 
 ⚠️ Slow for large datasets  
-⚠️ Sensitive to feature scaling  
+⚠️ Sensitive to feature scaling
 
 ---
 
@@ -145,7 +146,7 @@ All models were trained and evaluated using:
 ✅ Evaluated models using classification metrics  
 ✅ Compared model performance  
 ✅ Analyzed Random Forest feature importance  
-✅ Selected the best-performing model  
+✅ Selected the best-performing model
 
 ---
 
@@ -173,10 +174,9 @@ F1-score was chosen because it provides a balance between:
 ---
 
 # 📁 Project Structure
+
 Day4/
 │
-├── day4.ipynb
-│
-├── diabetes.csv
+├── trees_forests_sVMs_k-NN.ipynb
 │
 └── README.md
